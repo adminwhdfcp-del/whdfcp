@@ -113,14 +113,9 @@ p { margin: 0 0 18px; }
 .facebook-section h2, .facebook-section p, .facebook-section .eyebrow { color: #fff; }
 .facebook-section .eyebrow { color: var(--yellow); }
 .facebook-inner > div:first-child { max-width: 760px; }
-.site-footer { background: #08265e; color: #dce9ff; }
-.footer-grid { padding: 54px 0; display: grid; grid-template-columns: 1.5fr 1fr; gap: 70px; }
-.site-footer h2 { color: #fff; font-size: 1.2rem; }
-.site-footer a { color: #fff; }
-.site-footer ul { list-style: none; padding: 0; margin: 0; }
-.site-footer li { margin: 7px 0; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,.16); }
-.footer-bottom p { margin: 0; padding: 18px 0; font-size: .9rem; }
+.site-footer { background: #08265e; }
+.footer-logo { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; padding: 42px 0; display: flex; justify-content: center; }
+.footer-logo img { width: min(360px, 100%); height: auto; }
 @media (max-width: 900px) {
   .header-inner { padding: 14px 0; align-items: flex-start; }
   .brand { flex-basis: 290px; }
@@ -146,9 +141,9 @@ p { margin: 0 0 18px; }
   .event-card-content, .update-card { padding: 26px; }
   .event-placeholder { display: block; }
   .event-placeholder-icon { margin-bottom: 16px; }
-  .facebook-inner, .footer-grid { display: block; }
+  .facebook-inner { display: block; }
   .facebook-inner .button { margin-top: 10px; }
   .social-buttons { margin-top: 10px; }
-  .footer-grid > div + div { margin-top: 35px; }
+  .footer-logo { width: min(calc(100% - 28px), var(--max)); padding: 34px 0; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
