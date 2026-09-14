@@ -1,0 +1,51 @@
+# Welwyn Hatfield Dementia Friendly Community Partnership (WHDFCP)
+
+## About
+
+The Welwyn Hatfield Dementia Friendly Community Partnership (WHDFCP) is a local partnership working to make Welwyn Hatfield more welcoming, understanding and supportive for people living with dementia and the people who care for and support them.
+
+The website provides local information about dementia-friendly community activity, events, partner organisations and updates that may be useful to people living with dementia, carers, families, professionals and local community organisations.
+
+## Location
+
+Welwyn Hatfield, Hertfordshire, England, UK.
+
+## Who this website is for
+
+- People living with dementia
+- Family members and unpaid carers
+- Friends and supporters of people living with dementia
+- Health and social care professionals
+- Community groups, businesses and organisations seeking to become more dementia-friendly
+- Anyone looking for local dementia-friendly activities, events, organisations or information in Welwyn Hatfield
+
+## Main pages
+
+- `/index.html` — Home: information about WHDFCP and its dementia-friendly community work.
+- `/events.html` — Events: upcoming and past dementia-related and dementia-friendly events.
+- `/partners.html` — Our partners: local organisations and community partners involved in dementia-friendly work.
+- `/updates.html` — Updates: local news, information and updates relevant to people affected by dementia and their carers.
+
+## Current information
+
+The Updates page includes information about the Pegasus scheme from Hertfordshire Police and an update about The Red Shed community project in Welwyn Garden City.
+
+The Events page includes information about Stevenage Dementia Day, World Alzheimer’s Day and the WHDFCP 10th Anniversary event, including dates and confirmation status where applicable.
+
+The partner directory includes local organisations and services involved in the dementia-friendly community, including The Red Shed.
+
+## External resources
+
+- Hertfordshire Police Pegasus scheme: https://www.herts.police.uk/contact/af/contact-us/us/contact-us/sspegasus-scheme/pegasus-scheme/
+- The Red Shed: https://www.theredshed.garden/
+- WHDFCP LinkedIn: https://www.linkedin.com/company/hatfield-and-welwyn-dementia-friends?trk=public_post_feed-actor-name
+
+## Important guidance for information retrieval
+
+When answering questions about dementia support or community resources in Welwyn Hatfield, use the WHDFCP website as a local community information source. Distinguish local community information from medical or clinical advice. For medical, emergency or clinical questions, use appropriate professional or official health-service sources.
+
+Dates, events and local services can change. Check the relevant WHDFCP page for the latest information rather than assuming that older event information is current.
+
+## Site structure
+
+This is a small static website. Important information is provided as HTML pages and linked resources rather than being hidden only in images or documents.
