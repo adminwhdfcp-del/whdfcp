@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-hidden="true">
+  <title>Generic partner icon</title>
+  <rect width="96" height="96" rx="16" fill="#8338ec"/>
+  <path d="M25 67V45c0-14 10-24 23-24s23 10 23 24v22" fill="none" stroke="white" stroke-width="11" stroke-linecap="round"/>
+  <path d="M37 67V48c0-7 5-12 11-12s11 5 11 12v19" fill="none" stroke="#8338ec" stroke-width="6" stroke-linecap="round"/>
+</svg>

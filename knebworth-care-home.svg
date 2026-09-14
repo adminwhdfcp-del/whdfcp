@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-hidden="true">
+  <title>Generic partner icon</title>
+  <rect width="96" height="96" rx="16" fill="#bc6c25"/>
+  <g fill="white" opacity=".95"><ellipse cx="48" cy="31" rx="9" ry="17"/><ellipse cx="65" cy="48" rx="17" ry="9"/><ellipse cx="48" cy="65" rx="9" ry="17"/><ellipse cx="31" cy="48" rx="17" ry="9"/></g>
+  <circle cx="48" cy="48" r="8" fill="#bc6c25"/>
+</svg>
