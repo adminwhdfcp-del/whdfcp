@@ -70,30 +70,32 @@ document.querySelectorAll('.partner-card').forEach(function (card) {
   const button = card.querySelector('.read-more');
   if (!bio || !button) return;
 
-  button.addEventListener('click', function () {
-    const expanded = bio.classList.toggle('is-expanded');
-    button.setAttribute('aria-expanded', String(expanded));
-    button.textContent = expanded ? 'Read less' : 'Read more';
-  });
-});
-</script>
-<script>
-document.querySelectorAll('.partner-card').forEach(function (card) {
-  const bio = card.querySelector('.partner-bio');
-  const button = card.querySelector('.read-more');
-  if (!bio || !button) return;
+  function updateReadMoreVisibility() {
+    const wasExpanded = bio.classList.contains('is-expanded');
+    if (wasExpanded) bio.classList.remove('is-expanded');
 
-  requestAnimationFrame(function () {
-    if (bio.scrollHeight > bio.clientHeight + 1) {
+    // Temporarily remove the clamp so we can reliably measure the full text.
+    const fullHeight = bio.scrollHeight;
+    const collapsedHeight = bio.clientHeight;
+
+    if (fullHeight > collapsedHeight + 1) {
       button.hidden = false;
+    } else {
+      button.hidden = true;
     }
-  });
+
+    if (wasExpanded) bio.classList.add('is-expanded');
+  }
 
   button.addEventListener('click', function () {
     const expanded = bio.classList.toggle('is-expanded');
     button.setAttribute('aria-expanded', String(expanded));
     button.textContent = expanded ? 'Read less' : 'Read more';
+    button.hidden = false;
   });
+
+  requestAnimationFrame(updateReadMoreVisibility);
+  window.addEventListener('resize', updateReadMoreVisibility);
 });
 </script>
 </body>
