@@ -89,8 +89,8 @@ Upcoming events appear under **Upcoming events** and are presented as large even
 On desktop:
 
 - the event title and date appear across the top of the card
-- the event image/poster appears on one side
-- the event information appears on the other side
+- the event image/poster appears on the left side
+- the event information appears on the right side
 - the layout changes to a single column on smaller screens
 
 Do not redesign an individual event card unless there is a good reason. Keep the established layout consistent between events.
