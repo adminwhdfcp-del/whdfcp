@@ -1,0 +1,62 @@
+name: Update partner links
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/update-partner-links.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Add verified partner website links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path('partners.html')
+          html = path.read_text(encoding='utf-8')
+
+          links = {
+              'Hertfordshire Hearing Advisory Services': 'https://www.hhas.org.uk/',
+              'Allsorts Dementia Group Leader, Essendon': 'https://www.allsortsdg.co.uk/',
+              'Burvill House Patient Participant Group': 'https://www.burvillhousesurgery.org.uk/patient-voice',
+              'Cherish Social Care': 'https://cherishsocialcare.com/',
+              'Garden City Practice Surgery': 'https://www.gardencitypractice.nhs.uk/',
+              'Healthy Hub Welwyn Hatfield Borough Council': 'https://one.welhat.gov.uk/healthy-hub/healthy-hub-2',
+              'Music24': 'https://www.music24.org.uk/',
+              'Home Instead WGC': 'https://www.homeinstead.co.uk/welwyn-hatfield/',
+              'Plowright Hinton Ltd': 'https://phlimited.co.uk/',
+              'Dementia Friendly &amp; Memory Support Hertfordshire': 'https://memorysupportherts.org.uk/dementia-friendly-hertfordshire/'
+          }
+
+          for name, url in links.items():
+              pattern = re.compile(r'(<article class="partner-card">.*?<h2>' + re.escape(name) + r'</h2>.*?<div class="partner-actions">)(.*?)(</div>)', re.S)
+              match = pattern.search(html)
+              if not match:
+                  raise SystemExit(f'Could not find partner: {name}')
+              actions = match.group(2)
+              if 'Visit website' in actions:
+                  continue
+              replacement = actions + f'<a href="{url}" rel="noopener noreferrer" target="_blank">Visit website</a>'
+              html = html[:match.start(2)] + replacement + html[match.end(2):]
+
+          path.write_text(html, encoding='utf-8')
+          PY
+
+      - name: Commit changes and remove temporary workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add partners.html .github/workflows/update-partner-links.yml
+          git rm .github/workflows/update-partner-links.yml
+          git commit -m 'Add verified partner website links'
+          git push
