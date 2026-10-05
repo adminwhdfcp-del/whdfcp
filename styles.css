@@ -160,3 +160,24 @@ p { margin: 0 0 18px; }
     touch-action: manipulation;
   }
 }
+
+/* Generic icon for partner cards that do not yet have an organisation logo. */
+.partner-text-logo {
+  width: 76px !important;
+  height: 76px !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  border-radius: 22px;
+  margin-bottom: 20px !important;
+  background: var(--blue-100) !important;
+  color: var(--blue-900) !important;
+  font-size: 0 !important;
+  line-height: 1;
+}
+.partner-text-logo::before {
+  content: "✦";
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
