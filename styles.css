@@ -83,8 +83,9 @@ p { margin: 0 0 18px; }
 .page-header .eyebrow { color: var(--yellow); }
 .partners-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .partner-card { padding: 24px; display: flex; flex-direction: column; min-height: 100%; }
-.partner-logo { width: 76px; height: 76px; border-radius: 22px; margin-bottom: 20px; background: var(--blue-100); display: grid; place-items: center; overflow: hidden; }
-.partner-logo img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
+/* Partner logos are allowed to stand on their own: no blue tile and a larger, flexible display area. */
+.partner-logo { width: min(210px, 100%); height: 120px; border-radius: 0; margin-bottom: 22px; background: transparent; display: grid; place-items: center; overflow: visible; }
+.partner-logo img { width: 100%; height: 100%; object-fit: contain; padding: 0; }
 .partner-card h2 { font-size: 1.3rem; margin-bottom: 9px; }
 .partner-card p { color: var(--muted); font-size: .98rem; flex: 1; }
 .partner-card a { font-weight: 800; }
@@ -145,6 +146,7 @@ p { margin: 0 0 18px; }
   .facebook-inner .button { margin-top: 10px; }
   .social-buttons { margin-top: 10px; }
   .footer-logo { width: min(calc(100% - 28px), var(--max)); padding: 34px 0; }
+  .partner-logo { width: min(220px, 100%); height: 110px; margin-bottom: 20px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
