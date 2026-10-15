@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Add the live sitemap URL after the domain is chosen.
-# Sitemap: https://YOUR-DOMAIN.example/sitemap.xml
+Sitemap: https://whdfcp.org.uk/sitemap.xml
