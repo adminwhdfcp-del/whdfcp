@@ -181,3 +181,19 @@ p { margin: 0 0 18px; }
   font-weight: 800;
   line-height: 1;
 }
+
+
+/* Memory Support Herts link: blue branding and gently curved logo-inspired corners. */
+nav .memory-support-link,
+nav .memory-support-link:hover {
+  background: #50b8e5;
+  color: #fff;
+  padding-inline: 16px;
+  border-radius: 22px 4px 22px 4px;
+}
+.memory-support-button,
+.memory-support-button:hover {
+  background: #50b8e5;
+  color: #fff;
+  border-radius: 22px 4px 22px 4px;
+}
