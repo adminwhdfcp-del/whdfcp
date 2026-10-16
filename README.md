@@ -2,20 +2,36 @@
 
 This repository contains the website for the **Welwyn Hatfield Dementia Friendly Community Partnership (WHDFCP)**.
 
-The site is a simple, accessible, static website hosted through **Cloudflare Pages** and maintained through **GitHub**.
+The site is a simple, accessible, static website maintained in **GitHub** and deployed using **Cloudflare**.
+
+The normal working process uses two branches:
+
+- `Staging` — make and test website changes here first.
+- `main` — the production branch used for the live website.
 
 ## 1. HOW THE WEBSITE WORKS
 
-**GitHub is the master copy of the website.** Changes should be made in this repository and committed to the `main` branch unless the website administrator has instructed otherwise.
+**GitHub is the master copy of the website.** Make routine edits on the `Staging` branch first, not directly on `main`.
 
-Cloudflare Pages is connected to the GitHub repository and publishes the committed files to the live website. There is normally no need to upload files manually to Cloudflare.
+Cloudflare is connected to the repository. Changes pushed to `Staging` should create a preview deployment, while merging changes into `main` publishes the production version. There is normally no need to upload files manually to Cloudflare.
 
-After committing a change:
+### Standard workflow: edit, preview, publish
 
-1. Check that the commit completed successfully on GitHub.
-2. Allow Cloudflare a few minutes to create the new deployment.
-3. Check the live website, preferably on both desktop and mobile.
-4. If a change does not appear, check the Cloudflare deployment status before making another edit.
+1. Open the GitHub repository and select the `Staging` branch.
+2. Edit the relevant HTML/CSS file or add the image in the correct folder. Make sure the branch selector still says `Staging` before committing.
+3. Use a short commit message describing the change.
+4. Wait for the Cloudflare preview deployment to finish. Open the preview URL and check the change on desktop and mobile; test links and images.
+5. If something is wrong, correct it on `Staging`, commit again and re-check the preview.
+6. When the preview looks right, open a **Pull request** in GitHub. Set **base** to `main` and **compare** to `Staging` (merge `Staging` into `main`). Review the list of changed files.
+7. Select **Create pull request** and then **Merge pull request** when ready. Confirm the merge.
+8. Wait for Cloudflare's production deployment from `main` to complete.
+9. Open https://whdfcp.org.uk/ and check the live page, preferably on desktop and mobile.
+
+**Do not merge until the preview has been checked.** If GitHub reports a merge conflict or a required check fails, pause and investigate rather than forcing the merge. If the live site does not update, check the Cloudflare deployment logs and branch/build status before making duplicate edits.
+
+### If you need to correct a live problem
+
+Make the fix on `Staging`, check the preview, then merge it to `main` using the same pull-request process. This keeps the normal workflow consistent and leaves a clear record of the change.
 
 ## 2. CURRENT FILE STRUCTURE
 
@@ -65,9 +81,10 @@ Avoid keeping multiple copies of the same image with names such as `logo-new.png
 2. Find the HTML, CSS or image file that needs changing.
 3. Edit the file directly on GitHub, or upload a new image into the appropriate `images` subfolder.
 4. Check spelling, links, image paths and formatting carefully.
-5. Commit the change to `main` unless instructed otherwise.
-6. Wait for the Cloudflare deployment.
-7. Check the live page on desktop and mobile.
+5. Commit the change to `Staging`.
+6. Check the Cloudflare preview before publishing.
+7. Merge `Staging` into `main` with a GitHub pull request once the preview is approved.
+8. Wait for the production deployment and check the live page on desktop and mobile.
 
 Use a short, useful commit message, for example:
 
@@ -238,11 +255,13 @@ For partner logos, use one consistent logo file per organisation where practical
 
 ## 11. CLOUDFLARE AND DEPLOYMENT
 
-The website is published through Cloudflare Pages from the GitHub repository.
+Cloudflare builds previews from `Staging` and publishes the live website from `main`.
 
-After a GitHub commit, Cloudflare should normally create a new deployment. If the deployment remains stuck at **Initializing** for an unusually long time, check the Cloudflare deployment logs rather than repeatedly committing the same change.
-
-Do not manually upload the website as a separate copy to Cloudflare unless the website administrator has specifically decided to change the deployment method.
+- A commit to `Staging` is for preview/testing; it should not be treated as a live-site update.
+- Merging a pull request from `Staging` into `main` is the normal production release step.
+- After either branch is updated, check the relevant deployment status and logs if a build fails or remains at **Initializing** for an unusually long time.
+- Do not repeatedly commit the same change to try to fix a deployment failure.
+- Do not manually upload a separate copy of the site to Cloudflare unless the website administrator has specifically decided to change the deployment method.
 
 ## 12. SECURITY AND ACCESS
 
@@ -258,7 +277,7 @@ Avoid making a volunteer's personal account the sole point of access.
 
 ## 13. BEFORE FINISHING AN UPDATE — CHECKLIST
 
-Before committing:
+Before committing to `Staging`:
 
 - [ ] Correct file edited
 - [ ] Spelling and dates checked
@@ -271,10 +290,16 @@ Before committing:
 - [ ] Partner remains alphabetically sortable
 - [ ] Commit message clearly describes the change
 
-After committing:
+After committing to `Staging`:
 
 - [ ] GitHub commit completed successfully
-- [ ] Cloudflare deployment completed
+- [ ] Cloudflare preview deployment completed
+- [ ] Preview checked before merging
+
+After merging `Staging` into `main`:
+
+- [ ] Pull request reviewed and merged
+- [ ] Cloudflare production deployment completed
 - [ ] Live page checked
 - [ ] Desktop layout checked
 - [ ] Mobile layout checked
