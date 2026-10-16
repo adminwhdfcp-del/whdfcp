@@ -197,3 +197,13 @@ nav .memory-support-link:hover {
   color: #fff;
   border-radius: 22px 4px 22px 4px;
 }
+
+
+/* Keep The Red Shed's logo smaller than the standard partner logos. */
+.partner-logo-red-shed img {
+  width: auto;
+  max-width: 125px;
+  height: auto;
+  max-height: 76px;
+  object-fit: contain;
+}
