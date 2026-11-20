@@ -52,7 +52,7 @@
       const time=details.find(d=>/when|session time/i.test(d.label))?.value?.textContent.replace(/^When|^Session time/i,'').trim()||'';
       const where=details.find(d=>/where|venue/i.test(d.label))?.value?.textContent.replace(/^Where|^Venue/i,'').trim()||'';
       const image=card.querySelector('.event-poster img');
-      return {date,dateText,title,summary,time,where,image:image?.getAttribute('src')||'',alt:image?.getAttribute('alt')||title};
+      return {date,dateText,title,summary,time,where,eventId:card.id,image:image?.getAttribute('src')||'',alt:image?.getAttribute('alt')||title};
     }).filter(Boolean).sort((a,b)=>a.date-b.date).slice(0,3);
     container.replaceChildren();
     if(!events.length){container.innerHTML='<p>There are no upcoming events listed just now. Please check back soon.</p>';return;}
@@ -66,7 +66,7 @@
       const meta=document.createElement('div');meta.className='home-event-meta';
       if(event.time){const p=document.createElement('p');p.textContent=event.time;meta.appendChild(p);}
       if(event.where){const p=document.createElement('p');p.textContent=event.where;meta.appendChild(p);}
-      const link=document.createElement('a');link.href='events.html';link.textContent='Event details';
+      const link=document.createElement('a');link.href='events.html#'+encodeURIComponent(event.eventId);link.textContent='View event details';
       content.append(date,title,summary,meta,link);article.appendChild(content);container.appendChild(article);
     });
   }catch(error){container.innerHTML='<p>See our <a href="events.html">events page</a> for the latest upcoming events.</p>';}
