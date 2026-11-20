@@ -162,6 +162,20 @@ When adding an event:
 6. Make sure the event appears in chronological order with the other upcoming events.
 7. Check the result on desktop and mobile after deployment.
 
+### Homepage links to individual events
+
+The homepage (`index.html`) has a **Coming up soon** section that automatically reads the event cards from `events.html` and displays the next three upcoming events. Each homepage card must link directly to the matching event card on the Events page, not just to the top of `events.html`.
+
+Whenever you add a new event:
+
+1. Give its event card in `events.html` a unique, descriptive HTML `id` (for example, `event-community-listening-event`). Use lowercase words separated by hyphens, and make sure no other element on the page uses the same ID.
+2. Keep the ID on that same event card if you later edit the event. Do not casually rename or remove it, because the homepage uses it to create the direct link.
+3. Make sure the homepage event script can read the card's ID and build a link in this form: `events.html#event-community-listening-event`. The link text should clearly invite visitors to view the event details.
+4. Check that the homepage only displays future events, in date order, and that the **View event details** link opens the correct event card on `events.html`.
+5. If the event card has no unique ID, the homepage cannot reliably link directly to it. Add and verify the ID before considering the event complete.
+
+After changing either page, test the homepage link in the Staging preview and confirm it lands at the correct event card. Also check the Events page directly. Do not remove or change the existing homepage event-fetching behaviour when editing `index.html` unless that is specifically required.
+
 Do not invent missing event details. If a time, booking arrangement or other detail has not been confirmed, say so clearly, for example **time to be confirmed**.
 
 ### Moving an event to past events
